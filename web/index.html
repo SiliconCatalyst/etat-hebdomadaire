@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debt KPI Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <!-- Header -->
+      <div class="card-header">
+        <h1>Debt KPI Calculator</h1>
+        <p class="subtitle">
+          Upload two Excel files to compute financial KPIs and export a report.
+        </p>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body">
+        <!-- File 1 -->
+        <div style="margin-bottom: 16px">
+          <label class="field-label" for="file1">Balance Sheet</label>
+          <div class="file-row">
+            <input type="file" id="file1" accept=".xlsx,.xls" />
+          </div>
+        </div>
+
+        <!-- File 2 -->
+        <div style="margin-bottom: 20px">
+          <label class="field-label" for="file2">Income Statement</label>
+          <div class="file-row">
+            <input type="file" id="file2" accept=".xlsx,.xls" />
+            <button id="calculateBtn">Calculate</button>
+          </div>
+        </div>
+
+        <!-- Error -->
+        <p class="error hidden" id="errorMsg"></p>
+
+        <!-- Results -->
+        <div class="results hidden" id="resultsCard">
+          <div class="kpi-row">
+            <span class="kpi-label">Debt-to-Equity Ratio</span>
+            <span class="kpi-value" id="kpiDebtEquity">—</span>
+          </div>
+          <div class="kpi-row">
+            <span class="kpi-label">Debt-to-EBITDA</span>
+            <span class="kpi-value" id="kpiDebtEbitda">—</span>
+          </div>
+          <div class="kpi-row">
+            <span class="kpi-label">Interest Coverage Ratio</span>
+            <span class="kpi-value" id="kpiInterestCoverage">—</span>
+          </div>
+          <div class="kpi-row">
+            <span class="kpi-label">Net Debt</span>
+            <span class="kpi-value" id="kpiNetDebt">—</span>
+          </div>
+          <div class="kpi-row">
+            <span class="kpi-label">Current Ratio</span>
+            <span class="kpi-value" id="kpiCurrentRatio">—</span>
+          </div>
+          <div class="kpi-row">
+            <span class="kpi-label">Debt Service Coverage</span>
+            <span class="kpi-value" id="kpiDscr">—</span>
+          </div>
+        </div>
+
+        <!-- Date range badge -->
+        <p class="date-range hidden" id="dateRange"></p>
+
+        <!-- Export -->
+        <div style="margin-top: 20px">
+          <button id="exportBtn" style="width: 100%" disabled>
+            Export to Word
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
